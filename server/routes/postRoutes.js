@@ -1,7 +1,7 @@
 // postRoutes.js
 const express = require('express');
 const router = express.Router();
-const Post = require('./postModel'); // Import the Post model
+const Post = require('../models/postModel'); // Import the Post model
 
 // Create a new blog post
 router.post('/posts', async (req, res) => {
