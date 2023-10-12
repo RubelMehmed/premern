@@ -7,4 +7,14 @@ const postSchema = new mongoose.Schema({
   content: { type: String, required: true },
 });
 
-module.exports = mongoose.model('Post', postSchema);
+// Specify a custom collection name__________premern-blogs
+
+const Post = mongoose.model('Post', postSchema, 'premern-blogs');
+module.exports = Post;
+
+
+// module.exports = mongoose.model('Post', postSchema);
+
+
+
+

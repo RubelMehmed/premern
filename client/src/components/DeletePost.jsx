@@ -9,7 +9,7 @@ function DeletePost() {
 
   const handleDelete = () => {
     // Send a DELETE request to remove the post on your server
-    axios.delete(`/api/posts/${postIdToDelete}`)
+    axios.delete(`http://localhost:5000/api/posts/${postIdToDelete}`)
       .then(() => {
         console.log('Post deleted successfully');
         

@@ -1,4 +1,4 @@
-// client/src/components/CreatePost.js
+import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,10 +20,24 @@ function CreatePost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send a POST request to create a new post to your server
-
-    // After successful submission, you can navigate to another route, e.g., the home page.
-    navigate('/');
+    
+    // Send a POST request to create a new post on your server
+    axios.post('http://localhost:5000/api/posts', newPost)
+      .then((response) => {
+        console.log('New post created:', response.data);
+        
+        // Clear the input fields after successful submission
+        setNewPost({
+          title: '',
+          content: '',
+        });
+        
+        // Navigate to the home page
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Error creating post:', error);
+      });
   };
 
   return (
@@ -56,3 +70,6 @@ function CreatePost() {
 }
 
 export default CreatePost;
+
+
+

@@ -1,6 +1,5 @@
+import { BrowserRouter as Router, Link, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
-
-import { BrowserRouter as Router, Link, Outlet, Route } from 'react-router-dom';
 
 import CreatePost from './components/CreatePost';
 import DeletePost from './components/DeletePost';
@@ -24,16 +23,19 @@ function App() {
         </nav>
 
         <hr />
-
-        <Route path="/" element={<Home />} /> {/* Use the Home component for the home page */}
+        <Routes>
+        <Route path="/" element={<Home />}>
+          {/* Use the Home component for the home page */}
+        </Route>
         <Route path="/create" element={<CreatePost />} />
         <Route path="/update" element={<UpdatePost />} />
         <Route path="/delete" element={<DeletePost />} />
         <Route path="/post/:postId" element={<Outlet />}>
-          <Route path="/" element={<ReadPosts />} />
-          <Route path="/edit" element={<UpdatePost />} />
-          <Route path="/remove" element={<DeletePost />} />
+          <Route index element={<ReadPosts />} />
+          <Route path="edit" element={<UpdatePost />} />
+          <Route path="remove" element={<DeletePost />} />
         </Route>
+        </Routes>
       </div>
     </Router>
   );

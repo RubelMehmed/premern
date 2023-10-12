@@ -6,7 +6,7 @@ function ReadPosts() {
 
   useEffect(() => {
     // Fetch all blog posts from your server
-    axios.get('/api/posts')
+    axios.get('http://localhost:5000/api/posts')
       .then((response) => {
         setPosts(response.data);
       })

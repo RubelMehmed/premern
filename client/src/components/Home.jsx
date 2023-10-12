@@ -6,7 +6,7 @@ function Home() {
 
   useEffect(() => {
     // Fetch blog posts from the server when the component mounts
-    axios.get('/api/posts')
+    axios.get('http://localhost:5000/api/posts')
       .then((response) => {
         setPosts(response.data);
       })
